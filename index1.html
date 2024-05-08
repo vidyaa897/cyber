@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Analyzer</title>
+</head>
+
+<body>
+    <center>
+        <h1>Vulnerability Scanner</h1>
+        {% if error_message %}
+            <p style="color: red;">{{ error_message }}</p>
+        {% endif %}
+        <form action="/vulnerability" method="post" enctype="multipart/form-data">
+            <label for="file">CSV Files:</label>
+            <input type="file" name="file" accept=".csv" multiple required>
+            <br>
+	    <button type="submit">Check</button>
+        </form>
+    </center>
+</body>
+
+</html>
