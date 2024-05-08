@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Analyzer</title>
+</head>
+<style>
+body {
+	    font-family: 'Arial', sans-serif;
+	        background-color: #f4f4f4;
+}
+
+	center {
+		    margin-top: 50px;
+	}
+
+	h1 {
+		    color: #333;
+	}
+
+	form {
+		    background-color: #fff;
+		        padding: 20px;
+			    border-radius: 8px;
+			        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	}
+
+	label {
+		    display: block;
+		        margin: 50px 0;
+			    font-weight: bold;
+	}
+
+	select, input {
+		    width: 50%;
+		        padding: 8px;
+			    margin: 5px 0;
+			        box-sizing: border-box;
+	}
+
+	button {
+		    background-color: #007bff;
+		        color: #fff;
+			    padding: 10px 20px;
+			        border: none;
+				    border-radius: 4px;
+				        cursor: pointer;
+	}
+
+	button:hover {
+		    background-color: #0056b3;
+	}
+</style>
+<body>
+    <center>
+        <h1>CSV Analyzer</h1>
+        {% if error_message %}
+            <p style="color: red;">{{ error_message }}</p>
+        {% endif %}
+	<form action="/analyze" method="post" enctype="multipart/form-data">
+    <label for="file">CSV Files:</label>
+    <input type="file" name="file" accept=".csv" multiple required>
+    <br>
+    <label for="x_attribute1">X Attribute 1:</label>
+    <select name="x_attribute1" id="x_attribute1" placeholder="Enter X Attribute 1" required>
+        <!-- Options for X Attribute 1 -->
+	<option value="src_ip">src_ip</option>
+        <option value="src_mac">src_mac</option>
+        <option value="src_port">src_port</option>
+        <option value="dst_ip">dst_ip</option>
+        <option value="dst_mac">dst_mac</option>
+        <option value="dst_port">dst_port</option>
+    </select>
+    <br>
+    <label for="x_attribute2">X Attribute 2:</label>
+    <select name="x_attribute2" id="x_attribute2" placeholder="Enter X Attribute 2" required>
+        <!-- Options for X Attribute 2 -->
+	<option value="bidirectional_duration_ms">bidirectional_duration_ms</option>
+        <option value="bidirectional_bytes">bidirectional_bytes</option>
+        <option value="application_name">application_name</option>
+
+    </select>
+    <br>
+    <label for="y_attribute">Y Attribute:</label>
+    <select name="y_attribute" id="y_attribute" placeholder="Enter Y Attribute" required>
+        <!-- Options for Y Attribute -->
+	<option value="bidirectional_duration_ms">bidirectional_duration_ms</option>
+        <option value="bidirectional_bytes">bidirectional_bytes</option>
+        <option value="application_name">application_name</option>
+
+    </select>
+    <br>
+    <button type="submit">Analyze</button>
+</form>
+</center>
+</body>
+
+</html>
+
