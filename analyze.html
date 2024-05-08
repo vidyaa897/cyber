@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar Graph</title>
+</head>
+
+<body>
+    <center>
+        <h1>Bar Graph</h1>
+        {% if error_message %}
+            <p style="color: red;">{{ error_message }}</p>
+        {% endif %}
+        <div>
+            {{ plot_html | safe }}
+        </div>
+        <br>
+        <a href="/">Back to Upload</a>
+    </center>
+</body>
+
+</html>
+
+
